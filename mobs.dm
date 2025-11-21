@@ -1,16 +1,30 @@
 /mob/player
 	icon = 'humans.dmi'
+	var/strength = 1
+	var/endurance = 1
+	var/speed = 1
+	var/resistance = 1
+	var/force = 1
+	var/offense = 1
+	var/defense = 1
+	var/recovery = 1
+	var/regeneration = 1
+
+/mob/player/proc/Str_up()
+	strength += 1 // Add in inventory system (where KGs will tell how heavy a player can lift/carry)
 
 /mob/player/Stat()
-	stat("strength")
-	stat("endurance")
-	stat("speed")
-	stat("resistance")
-	stat("force")
-	stat("offense")
-	stat("defense")
-	stat("recovery")
-	stat("regeneration")
+{
+	stat("strength", strength)
+	stat("endurance", endurance)
+	stat("speed", speed)
+	stat("resistance", resistance)
+	stat("force", force)
+	stat("offense", offense)
+	stat("defense", defense)
+	stat("recovery", recovery)
+	stat("regeneration", regeneration)
+}
 /*	strength = 1
 	endurance = 1
 	speed = 1
@@ -20,4 +34,3 @@
 	defense = 1
 	recovery = 1
 	regeneration = 1 */
-
