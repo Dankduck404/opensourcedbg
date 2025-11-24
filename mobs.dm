@@ -30,7 +30,9 @@
 	strength += 1 // Add in inventory system (where KGs will tell how heavy a player can lift/carry)
 
 /mob/player/Stat()
-{
+	..()
+	CheckAge()
+
 	stat("strength", strength)
 	stat("endurance", endurance)
 	stat("speed", speed)
@@ -40,7 +42,8 @@
 	stat("defense", defense)
 	stat("recovery", recovery)
 	stat("regeneration", regeneration)
-}
+	stat("Age:", age)
+
 /*	strength = 1
 	endurance = 1
 	speed = 1
