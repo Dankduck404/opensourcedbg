@@ -10,6 +10,22 @@
 	var/recovery = 1
 	var/regeneration = 1
 
+/mob/player/verb/who()
+	set category = "Player"
+	set name = "Who"
+
+	var/PlayerCount
+	usr << "-- Players Online --" // List title
+	for (var/mob/M in world)
+	// for(var/client/C in client)
+		if(M.client) //
+			PlayerCount ++
+			usr << M.key
+		usr << "-[PlayerCount]Players"
+		world.status = "((-[PlayerCount] Players Online.))"
+	usr << "-- End of List --"
+
+
 /mob/player/proc/Str_up()
 	strength += 1 // Add in inventory system (where KGs will tell how heavy a player can lift/carry)
 
