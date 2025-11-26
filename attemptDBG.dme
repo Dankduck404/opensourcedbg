@@ -13,10 +13,12 @@
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
+#include "aging.dm"
 #include "atom.dm"
 #include "mob_movement.dm"
 #include "mobs.dm"
 #include "README.dm"
 #include "turf.dm"
+#include "skin.dmf"
 #include "testmap.dmm"
 // END_INCLUDE

@@ -25,6 +25,9 @@
 		world.status = "((-[PlayerCount] Players Online.))"
 	usr << "-- End of List --"
 
+/mob/player/verb/Say(msg as text)
+	for(var/mob/M in oview(src))
+	usr << "[src.name] says: [msg]"
 
 /mob/player/proc/Str_up()
 	strength += 1 // Add in inventory system (where KGs will tell how heavy a player can lift/carry)
