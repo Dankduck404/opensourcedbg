@@ -7,6 +7,12 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "hair"
+#define FILE_DIR "misc_icons"
+#define FILE_DIR "npc_icons"
+#define FILE_DIR "overlays"
+#define FILE_DIR "player_icons"
+#define FILE_DIR "turf_icons"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
@@ -15,10 +21,12 @@
 // BEGIN_INCLUDE
 #include "aging.dm"
 #include "atom.dm"
+#include "menus.dm"
 #include "mob_movement.dm"
 #include "mobs.dm"
+#include "race.dm"
 #include "README.dm"
 #include "turf.dm"
-#include "skin.dmf"
+#include "test_beserkskin.dmf"
 #include "testmap.dmm"
 // END_INCLUDE

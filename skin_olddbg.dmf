@@ -1,0 +1,1009 @@
+macro "macro"
+	elem 
+		name = "Center+REP"
+		command = ".center"
+	elem 
+		name = "Northeast+REP"
+		command = ".northeast"
+	elem 
+		name = "Southeast+REP"
+		command = ".southeast"
+	elem 
+		name = "Southwest+REP"
+		command = ".southwest"
+	elem 
+		name = "Northwest+REP"
+		command = ".northwest"
+	elem 
+		name = "West+REP"
+		command = ".west"
+	elem 
+		name = "North+REP"
+		command = ".north"
+	elem 
+		name = "East+REP"
+		command = ".east"
+	elem 
+		name = "South+REP"
+		command = ".south"
+	elem 
+		name = "F1+REP"
+		command = ".options"
+	elem 
+		name = "F2+REP"
+		command = ".screenshot"
+
+
+menu "menu"
+	elem 
+		name = "&File"
+		command = ""
+		saved-params = "is-checked"
+	elem 
+		name = "&Options and Messages...\tF1"
+		command = ".options"
+		category = "&File"
+		saved-params = "is-checked"
+	elem 
+		name = "&Save screenshot...\tF2"
+		command = ".screenshot"
+		category = "&File"
+		saved-params = "is-checked"
+	elem 
+		name = "&Quit"
+		command = ".quit"
+		category = "&File"
+		saved-params = "is-checked"
+	elem 
+		name = "&Icons"
+		command = ""
+		saved-params = "is-checked"
+	elem "stretch"
+		name = "St&retch to fit"
+		command = "updateMapIconSize0"
+		category = "&Icons"
+		can-check = true
+		group = "size"
+		saved-params = "is-checked"
+	elem "icon64"
+		name = "&64x64"
+		command = "updateMapIconSize64"
+		category = "&Icons"
+		can-check = true
+		group = "size"
+		saved-params = "is-checked"
+	elem "icon32"
+		name = "&32x32"
+		command = "updateMapIconSize32"
+		category = "&Icons"
+		is-checked = true
+		can-check = true
+		group = "size"
+		saved-params = "is-checked"
+	elem "size16"
+		name = "&16x16"
+		command = "updateMapIconSize16"
+		category = "&Icons"
+		can-check = true
+		group = "size"
+		saved-params = "is-checked"
+	elem 
+		name = ""
+		command = ""
+		category = "&Icons"
+		saved-params = "is-checked"
+	elem "textmode"
+		name = "&Text"
+		command = "\"menu.textmode.is-checked=true?mainwindow.map.text-mode=true:mainwindow.map.text-mode=false\""
+		category = "&Icons"
+		can-check = true
+		saved-params = "is-checked"
+	elem 
+		name = "&View"
+		command = ""
+		saved-params = "is-checked"
+	elem 
+		name = "St&ats"
+		command = ".winset \"mainwindow.statsPane.left=infoWindow\""
+		category = "&View"
+		is-checked = true
+		can-check = true
+		group = "view"
+		saved-params = "is-checked"
+	elem "bountiesM"
+		name = "&Bounties"
+		command = "UpdateBounties"
+		category = "&View"
+		can-check = true
+		group = "view"
+		saved-params = "is-checked"
+	elem "mutationsMenu"
+		name = "&Mutations/Diseases"
+		command = "mutationMenuClick"
+		category = "&View"
+		can-check = true
+		group = "view"
+		saved-params = "is-checked"
+
+
+window "Skin"
+	elem "Skin"
+		type = MAIN
+		pos = 476,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		image = 'misc_icons\\Skin.png'
+		outer-size = 658x549
+		outer-pos = 476,0
+		inner-pos = 9,38
+		screen-size = 1920x1020
+
+window "bountiesWindow"
+	elem "bountiesWindow"
+		type = MAIN
+		pos = 476,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		outer-size = 656x496
+		outer-pos = 476,0
+		inner-pos = 8,8
+		screen-size = 1920x1020
+	elem "bounties"
+		type = GRID
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		cells = 6x1
+		current-cell = 1,1
+		show-lines = none
+		show-names = false
+		enable-http-images = true
+		highlight-color = #000000
+		style = ".system {color:#FFFFFF;}\nIMG.icon { width:32px; height:32px; }"
+
+window "colourSliderWindow"
+	elem "colourSliderWindow"
+		type = MAIN
+		pos = 476,0
+		size = 248x128
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		border = sunken
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		outer-size = 264x144
+		outer-pos = 476,0
+		inner-size = 248x128
+		inner-pos = 8,8
+		screen-size = 1920x1020
+	elem "colourBar"
+		type = BAR
+		pos = 0,48
+		size = 248x80
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #ffffff
+		saved-params = ""
+		is-slider = true
+		dir = east
+		on-change = "Colour-Slider-Update"
+	elem "colourButton"
+		type = BUTTON
+		pos = 96,8
+		size = 48x44
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #6a0000
+		saved-params = "is-checked"
+		text = "Choose Colour"
+		command = "Colour-Close"
+	elem "label1"
+		type = LABEL
+		pos = 8,64
+		size = 232x16
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = ""
+		text = ""
+		image-mode = stretch
+	elem "buttonBlack"
+		type = BUTTON
+		pos = 92,100
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "is-checked"
+		text = "Black"
+		command = "Choose-Black"
+	elem "colourBar2"
+		type = BAR
+		pos = 148,0
+		size = 20x64
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = ""
+		is-slider = true
+		dir = north
+		value = 100
+		on-change = "Colour-Slider-Update2"
+
+window "combatPasWindow"
+	elem "combatPasWindow"
+		type = MAIN
+		pos = 476,0
+		size = 350x300
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Combat Passive Skills"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+		outer-size = 368x347
+		outer-pos = 476,0
+		inner-size = 350x300
+		inner-pos = 9,38
+		screen-size = 1920x1020
+	elem "label6"
+		type = LABEL
+		pos = 32,24
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Bone Breaker"
+		text-wrap = true
+	elem "label7"
+		type = LABEL
+		pos = 106,24
+		size = 62x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Laceration"
+		text-wrap = true
+	elem "label8"
+		type = LABEL
+		pos = 180,24
+		size = 60x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Deflection"
+		text-wrap = true
+	elem "bbreakerLb"
+		type = LABEL
+		pos = 45,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "lacerationLb"
+		type = LABEL
+		pos = 118,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "deflectionLb"
+		type = LABEL
+		pos = 192,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "bbreakerBt"
+		type = BUTTON
+		pos = 51,56
+		size = 29x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "BBreakerClick"
+		is-flat = true
+	elem "partsBt"
+		type = BUTTON
+		pos = 123,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "LacerationClick"
+		is-flat = true
+	elem "skinBt"
+		type = BUTTON
+		pos = 195,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "DeflectionClick"
+		is-flat = true
+	elem "pointsLb"
+		type = LABEL
+		pos = 171,128
+		size = 72x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+		align = left
+	elem "label10"
+		type = LABEL
+		pos = 107,128
+		size = 64x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Points Left:"
+		text-wrap = true
+	elem "label9"
+		type = LABEL
+		pos = 32,160
+		size = 72x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Energy Master"
+		text-wrap = true
+	elem "label11"
+		type = LABEL
+		pos = 107,160
+		size = 66x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Energy Manipulation"
+		text-wrap = true
+	elem "label12"
+		type = LABEL
+		pos = 178,160
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Regeneration"
+		text-wrap = true
+	elem "emasterLb"
+		type = LABEL
+		pos = 48,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "emanipLb"
+		type = LABEL
+		pos = 118,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "regenLb"
+		type = LABEL
+		pos = 192,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button8"
+		type = BUTTON
+		pos = 52,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "EMasterClick"
+		is-flat = true
+	elem "button9"
+		type = BUTTON
+		pos = 124,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "EManipClick"
+		is-flat = true
+	elem "button10"
+		type = BUTTON
+		pos = 196,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "RegenClick"
+		is-flat = true
+	elem "label16"
+		type = LABEL
+		pos = 265,24
+		size = 55x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Energy Deflection"
+		text-wrap = true
+	elem "edeflectionLb"
+		type = LABEL
+		pos = 272,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button11"
+		type = BUTTON
+		pos = 278,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "EDeflectionClick"
+		is-flat = true
+	elem "label18"
+		type = LABEL
+		pos = 259,160
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Energy Recovery"
+		text-wrap = true
+	elem "recovLb"
+		type = LABEL
+		pos = 273,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button12"
+		type = BUTTON
+		pos = 277,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "RecovClick"
+		is-flat = true
+
+window "infoWindow"
+	elem "infoWindow"
+		type = MAIN
+		pos = 476,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		outer-size = 656x496
+		outer-pos = 476,0
+		inner-pos = 8,8
+		screen-size = 1920x1020
+	elem "info"
+		type = INFO
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		text-color = #f0f0f0
+		background-color = #000000
+		is-default = true
+		saved-params = ""
+		highlight-color = #00ffff
+		tab-text-color = #f0f0f0
+		tab-background-color = #000000
+		allow-html = false
+
+window "mainwindow"
+	elem "mainwindow"
+		type = MAIN
+		pos = 476,0
+		size = 800x600
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		is-default = true
+		saved-params = "pos;size;is-maximized"
+		statusbar = false
+		macro = "macro"
+		menu = "menu"
+		outer-size = 818x672
+		outer-pos = 476,0
+		inner-size = 800x600
+		inner-pos = 9,63
+		screen-size = 1920x1020
+	elem "input"
+		type = INPUT
+		pos = 4,584
+		size = 746x16
+		anchor1 = 1,97
+		anchor2 = 94,100
+		text-color = #c0c0c0
+		background-color = #000000
+		is-default = true
+		border = line
+		saved-params = ""
+	elem "hostb"
+		type = BUTTON
+		pos = 749,580
+		size = 47x20
+		anchor1 = 94,97
+		anchor2 = 100,100
+		text-color = #c0c0c0
+		background-color = #000000
+		saved-params = "is-checked"
+		text = "Host..."
+		command = ".host"
+	elem "ICoutput"
+		type = OUTPUT
+		pos = 4,436
+		size = 400x144
+		anchor1 = 1,73
+		anchor2 = 51,97
+		text-color = #c0c0c0
+		background-color = #000000
+		saved-params = "max-lines"
+		link-color = #80ffff
+		visited-color = #008080
+		style = ".system {color:#FFFFFF;}"
+		max-lines = 0
+	elem "mainOutput"
+		type = OUTPUT
+		pos = 408,300
+		size = 388x280
+		anchor1 = 51,50
+		anchor2 = 100,97
+		text-color = #c0c0c0
+		background-color = #000000
+		is-default = true
+		saved-params = "max-lines"
+		link-color = #80ffff
+		visited-color = #008080
+		style = ".system {color:#FFFFFF;}"
+		max-lines = 0
+	elem "map"
+		type = MAP
+		pos = 4,4
+		size = 400x428
+		anchor1 = 1,1
+		anchor2 = 51,72
+		text-color = #000000
+		saved-params = "icon-size"
+	elem "statsPane"
+		type = CHILD
+		pos = 408,4
+		size = 388x292
+		anchor1 = 51,1
+		anchor2 = 100,49
+		background-color = none
+		saved-params = "splitter"
+		left = "infoWindow"
+		is-vert = false
+		show-splitter = false
+
+window "mutationsWindow"
+	elem "mutationsWindow"
+		type = MAIN
+		pos = 476,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		outer-size = 656x496
+		outer-pos = 476,0
+		inner-pos = 8,8
+		screen-size = 1920x1020
+	elem "mutations"
+		type = GRID
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		cells = 6x1
+		current-cell = 1,1
+		show-lines = none
+		show-names = false
+		enable-http-images = true
+		highlight-color = #000000
+		style = ".system {color:#FFFFFF;}\nIMG.icon { width:32px; height:32px; }"
+
+window "techPasWindow"
+	elem "techPasWindow"
+		type = MAIN
+		pos = 476,0
+		size = 350x300
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Technology Passive Skills"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+		outer-size = 368x347
+		outer-pos = 476,0
+		inner-size = 350x300
+		inner-pos = 9,38
+		screen-size = 1920x1020
+	elem "label6"
+		type = LABEL
+		pos = 32,24
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Androids"
+		text-wrap = true
+	elem "label7"
+		type = LABEL
+		pos = 106,24
+		size = 62x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Cyborgs"
+		text-wrap = true
+	elem "label8"
+		type = LABEL
+		pos = 180,24
+		size = 60x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Parts"
+		text-wrap = true
+	elem "androidsLb"
+		type = LABEL
+		pos = 45,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "cyborgsLb"
+		type = LABEL
+		pos = 118,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "partsLb"
+		type = LABEL
+		pos = 192,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "androidBt"
+		type = BUTTON
+		pos = 51,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "AndroidsClick"
+		is-flat = true
+	elem "partsBt"
+		type = BUTTON
+		pos = 123,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "CyborgsClick"
+		is-flat = true
+	elem "skinBt"
+		type = BUTTON
+		pos = 195,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "PartsClick"
+		is-flat = true
+	elem "pointsLb"
+		type = LABEL
+		pos = 171,128
+		size = 72x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+		align = left
+	elem "label10"
+		type = LABEL
+		pos = 107,128
+		size = 64x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Points Left:"
+		text-wrap = true
+	elem "label9"
+		type = LABEL
+		pos = 32,160
+		size = 72x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Artificial Skin"
+		text-wrap = true
+	elem "label11"
+		type = LABEL
+		pos = 107,160
+		size = 66x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Efficient"
+		text-wrap = true
+	elem "label12"
+		type = LABEL
+		pos = 178,160
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Study"
+		text-wrap = true
+	elem "skinLb"
+		type = LABEL
+		pos = 48,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "efficientLb"
+		type = LABEL
+		pos = 118,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "studyLb"
+		type = LABEL
+		pos = 192,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button8"
+		type = BUTTON
+		pos = 52,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "SkinClick"
+		is-flat = true
+	elem "button9"
+		type = BUTTON
+		pos = 124,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "EfficientClick"
+		is-flat = true
+	elem "button10"
+		type = BUTTON
+		pos = 196,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "StudyClick"
+		is-flat = true
+	elem "label16"
+		type = LABEL
+		pos = 265,24
+		size = 55x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Implants"
+		text-wrap = true
+	elem "implantsLb"
+		type = LABEL
+		pos = 272,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button11"
+		type = BUTTON
+		pos = 278,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "ImplantsClick"
+		is-flat = true
+	elem "label18"
+		type = LABEL
+		pos = 259,160
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Self Borgification"
+		text-wrap = true
+	elem "selfBorgLb"
+		type = LABEL
+		pos = 273,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button12"
+		type = BUTTON
+		pos = 277,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = ""
+		command = "SelfBorgClick"
+		is-flat = true
+

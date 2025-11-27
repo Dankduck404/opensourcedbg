@@ -10,6 +10,36 @@
 	var/recovery = 1
 	var/regeneration = 1
 
+ // continue this - use your ai tool for it's history
+
+/mob/player/verb/NewGame()
+	set hidden = 1
+	src << "Starting a new game..."
+	winshow(src, "window2", 0)
+	winshow(src, "window1", 1) //For test_beserkskin.dmf
+	// when you get time tomorrow, get help with throwing in the olddbg_dmf windows into the game like putting on the skin etc
+
+	RaceSelect()
+
+/mob/player/verb/LoadGame()
+	set hidden = 1
+	src << "Loading saved game..."
+	// LoadCharacter()
+
+/mob/player/verb/ChooseRace(r as text)
+	set hidden = 1
+
+	if(race_chosen)
+		src << "You have already chosen your race([race])."
+		return
+
+
+	src.race = r
+	ApplyRaceBonuses()
+
+	winshow(src, "window1", 0) // windows 1 is the race selection screen while 2 is the main menu lmao
+	// PointSelection()
+
 /mob/player/verb/who()
 	set category = "Player"
 	set name = "Who"
@@ -36,6 +66,7 @@
 	..()
 	CheckAge()
 
+	stat("Race:", race)
 	stat("strength", strength)
 	stat("endurance", endurance)
 	stat("speed", speed)

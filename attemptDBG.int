@@ -2,12 +2,13 @@
 /*
 MAP_PLANE_MASTERS: 
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1764024875
+LAST_COMPILE_TIME: 1764282978
+DIR: misc_icons 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 516.1669
-WINDOW: atom.dm;README.dm;humans.dmi;turf.dmi;mob_movement.dm;attemptDBG.dme;turf.dm;testmap.dmm;aging.dm;mobs.dm
-FILE: aging.dm
+WINDOW: atom.dm;README.dm;humans.dmi;turf.dmi;mob_movement.dm;attemptDBG.dme;turf.dm;testmap.dmm;aging.dm;test_beserkskin.dmf;race.dm;skin_olddbg.dmf;behlit_egg.dmi;mobs.dm;hair\FT_Trunks_Hair.dmi;misc_icons\item_sword.dmi;misc_icons\furniture.dmi;misc_icons\Canyon_Objects.dmi;misc_icons\CraterStage1.dmi;misc_icons\CraterStage3.dmi;misc_icons\DarkRealmPortal.dmi;misc_icons\DB's.dmi;misc_icons\DemonTeleport.dmi;misc_icons\FlameAttackNew.dmi;misc_icons\fountainofdespair.dmi;misc_icons\Korin'sTileset.dmi;misc_icons\Manyfoods.dmi;misc_icons\NewNamekianTrees.dmi
+FILE: misc_icons\NewNamekianTrees.dmi
 MAP_INSTANCE_MODE: copy
 */
 // END_INTERNALS
